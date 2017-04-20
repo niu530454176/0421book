@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-size: 0;
+            border: 1px solid darkolivegreen;
+            width: 808px;
+            margin: auto;
+        }
+        li, a{
+            display: inline-block;
+            width: 200px;
+            background: #0f0;
+            font-size: 16px;
+            border: 1px solid #fff;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>姓名</li>
+    <li>年龄</li>
+    <li>性别</li>
+    <a href="">删除</a>
+</ul>
+<ul>
+    <li>张三</li>
+    <li>男</li>
+    <li>17</li>
+    <a href="">删除</a>
+</ul>
+<ul>
+    <li>李四</li>
+    <li>男</li>
+    <li>18</li>
+    <a href="">删除</a>
+</ul>
+<script>
+    //页面上第一行有一个文本框 四个按钮 分别为 从前添加 从后添加 从前删除 从后删除 每次添加，出现该文本元素 可以通过按钮操作插入和删除元素
+    var btn = document.getElementsByTagName('a');
+</script>
+</body>
+</html>

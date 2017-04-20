@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <input id="box0" type="checkbox">
+    <label for="box0">A梦</label>
+    <input id="box1" type="checkbox">
+    <label for="box1">A梦</label>
+    <input id="box2" type="checkbox">
+    <label for="box2">A梦</label>
+    <input id="box3" type="checkbox">
+    <label for="box3">A梦</label>
+    <input id="box4" type="checkbox">
+    <label for="box4">A梦</label>
+    <input id="box5" type="checkbox">
+    <label for="box5">A梦</label>
+    <input id="box6" type="checkbox">
+    <label for="box6">A梦</label>
+    <input id="box7" type="checkbox">
+    <label for="box7">A梦</label>
+    <input id="box8" type="checkbox">
+    <label for="box8">A梦</label>
+    <input id="box9" type="checkbox">
+    <label for="box9">A梦</label>
+</form>
+<button id="btn-all">全选</button>
+<button id="btn-no">全不选</button>
+<button id="btn-reverse">反选</button>
+<script>
+
+    //页面上有10个多选框，实现三个按钮(重置、反选、全选)功能
+    var btnS = document.getElementsByTagName('input');
+    var btnAll = document.getElementById('btn-all');
+    var btnNoAll = document.getElementById('btn-no');
+    var btnReverse = document.getElementById('btn-reverse');
+    btnAll.addEventListener('click', function () {
+        for (var i = 0; i < btnS.length; i++) {
+            if (!btnS[i].checked){
+                    btnS[i].checked = true;
+                }
+        }
+    });
+    btnNoAll.addEventListener('click', function () {
+        for (var j = 0; j < btnS.length; j++) {
+            if (btnS[j].checked) {
+                btnS[j].checked = false;
+            }
+        }
+    });
+    btnReverse.addEventListener('click', function () {
+        for (var k = 0; k < btnS.length; k++) {
+            if(btnS[k].checked){
+                btnS[k].checked = false;
+            } else{
+                btnS[k].checked = true;
+            }
+        }
+    });
+
+
+
+
+</script>
+</body>
+</html>
