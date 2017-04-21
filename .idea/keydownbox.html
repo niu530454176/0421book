@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #w {
+            width: 600px;
+            height: 600px;
+            margin: auto;
+            position: relative;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        .n {
+            font-size: 16px;
+            color: #1313ff;
+        }
+
+    </style>
+</head>
+<body>
+<div id="w">
+    <div class="n">按上键可以向上移动</div>
+    <div class="n">按下键可以向下移动</div>
+    <div class="n">按左键可以向左移动</div>
+    <div class="n">按右键可以向右移动</div>
+    <div class="n">ctrl+键盘上键可以放大</div>
+    <div class="n">ctrl+键盘下键可以缩小</div>
+    <div class="n">ctrl+键盘左右键可以随机变颜色</div>
+    <div id="box" style="width: 100px;height: 100px;background-color: #ff0;position: absolute;left: 100px;top: 100px; z-index: -1"></div>
+</div>
+<script>
+
+    //页面上有一个div 100*100 颜色为黄色 按键盘上下左右键可以操作div移动 ctrl+键盘上下键可以放大缩小 ctrl+键盘左右键可以随机变颜色
+    var box = document.getElementById('box');
+    document.body.addEventListener('keydown', function (e) {
+        switch (e.keyCode) {
+            case 37:
+                if (e.ctrlKey) {
+                    box.style.backgroundColor = '#' + (Math.random() * 0xffffff * 111).toString(16).substring(0, 6);
+                } else {
+                    box.style.left = parseInt(box.style.left) - 6 + 'px';
+                }
+                break;
+            case 39:
+                if (e.ctrlKey) {
+                    box.style.backgroundColor = '#' + (Math.random() * 0xffffff * 111).toString(16).substring(0, 6);
+                } else {
+                    box.style.left = parseInt(box.style.left) + 6 + 'px';
+                }
+                break;
+            case 38:
+                box.style.top = parseInt(box.style.top) - 6 + 'px';
+                if (e.ctrlKey) {
+                    box.style.width = parseInt(box.style.width) + 4 + 'px';
+                    box.style.left = parseInt(box.style.left) - 2 + 'px';
+                    box.style.height = parseInt(box.style.height) + 4 + 'px';
+                    box.style.top = parseInt(box.style.top) + 4 + 'px';
+                }
+                break;
+            case 40:
+                box.style.top = parseInt(box.style.top) + 6 + 'px';
+                if (e.ctrlKey) {
+                    box.style.width = parseInt(box.style.width) - 4 + 'px';
+                    box.style.left = parseInt(box.style.left) + 2 + 'px';
+                    box.style.height = parseInt(box.style.height) - 4 + 'px';
+                    box.style.top = parseInt(box.style.top) - 4 + 'px';
+                }
+                break;
+        }
+        console.log(e.keyCode);
+    })
+</script>
+</body>
+</html>

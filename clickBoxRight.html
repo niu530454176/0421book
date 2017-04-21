@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: #0f0;
+            margin: 30px 0;
+        }
+        @keyframes box1 {
+            0% {
+                margin-left: 0;
+            }
+            100% {
+                margin-left: 200px;
+                transform: rotate(90deg);
+            }
+        }
+        @keyframes box2 {
+            0% {
+                margin-left: 200px;
+                transform: rotate(1deg);
+            }
+            100% {
+                margin-left: 400px;
+                transform: rotate(180deg);
+            }
+        }
+        @keyframes box3 {
+            0% {
+                margin-left: 400px;
+                transform: rotate(1deg);
+            }
+            100% {
+                margin-left: 600px;
+                transform: rotate(270deg);
+            }
+        }
+        @keyframes box4 {
+            0% {
+                margin-left: 600px;
+                transform: rotate(1deg);
+            }
+            100% {
+                margin-left: 800px;
+                transform: rotate(306deg);
+            }
+        }
+        @keyframes box5 {
+            0% {
+                margin-left: 800px;
+                transform: rotate(1deg);
+            }
+            100% {
+                margin-left: 1000px;
+                transform: rotate(240deg);
+            }
+        }
+        @keyframes box6 {
+            0% {
+                margin-left: 1000px;
+                transform: rotate(1deg);
+            }
+            50% {
+                margin-left: 1180px;
+                transform: rotate(180deg);
+            }
+            100% {
+                margin-left: 1200px;
+                transform: rotate(1deg);
+            }
+        }
+        @keyframes box7 {
+            0% {
+                margin-left: 1000px;
+                transform: rotate(1deg);
+            }
+            100% {
+                margin-left: 0;
+                transform: rotate(-720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn">点我移动盒子</button>
+<script>
+    var box = document.getElementById('box');
+    var btn = document.getElementById('btn');
+    function getStyle(obj, attr) {
+        if (obj.currentStyle) {
+            return obj.currentStyle[attr];
+        } else {
+            return getComputedStyle(obj, "伪类")[attr];
+        }
+    }
+    var count = 1;
+    btn.addEventListener('click', function () {
+        box.style.animation = 'box' + count + ' ' + 3 + 's' + ' ' + 'forwards';
+        count++;
+        if (count == 8) {
+            count = 1
+        }
+    })
+
+</script>
+</body>
+</html>

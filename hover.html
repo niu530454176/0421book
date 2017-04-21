@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            width: 600px;
+            font-size: 0;
+            background: #ce81ff;
+        }
+        li{
+            width: 198px;
+            height: 200px;
+
+            display: inline-block;
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+/*    var list = document.getElementsByTagName('li');
+    for (var i = 0; i < list.length; i++) {
+        list[i].addEventListener('mousemove', function () {
+            this.style.backgroundColor = '#' + 'fff';
+//            console.log(this.parentNode);
+        });
+        list[i].addEventListener('mouseout', function () {
+            this.style.backgroundColor = '#' + 'ce81ff';
+        });
+    }*/
+    var listTwo = document.getElementsByTagName('ul');
+    for (var j = 0; j < listTwo.length; j++) {
+        listTwo[j].addEventListener('mousemove', function () {
+            this.style.backgroundColor = '#' + '0ff';
+//            console.log(this.parentNode);
+        });
+        listTwo[j].addEventListener('mouseout', function () {
+            this.style.backgroundColor = '#' + 'ce81ff';
+        });
+    }
+
+    //
+</script>
+</body>
+</html>

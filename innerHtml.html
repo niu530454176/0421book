@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    //有数据如下，用js循环生成ul列表并插入到页面中
+    var box = document.getElementById('box');
+    var arr = [
+        '山西省委附近多次爆炸 官方称尚不确定是恐怖袭击',
+        '甘肃张掖明令禁止转基因 书记:无力辨别只能禁止',
+        '多地制定雾霾预案限行限排被批治标不治本',
+        '韩媒抱怨中国雾霾侵袭韩国 称其为"黑色灾难" ',
+        '伊朗革命卫队高官在叙利亚当"志愿者"被杀(图)'
+    ];
+    for (var i =0; i < arr.length; i++) {
+        if (i == 0) {
+            box.innerHTML += '<ul><li>' + arr[i] + '</li></ul>';
+        } else{
+            box.childNodes[0].innerHTML += '<li>' + arr[i] + '</li>';
+        }
+    }
+</script>
+</body>
+</html>

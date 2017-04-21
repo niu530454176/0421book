@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #txt{
+            width: 500px;
+            height: 60px;
+            border: 1px solid darkred;
+            display: block;
+            margin: auto;
+            text-align: center;
+            font-size: 20px;
+            color: #0f0;
+        }
+    </style>
+</head>
+<input id="txt" type="text">
+<body>
+<script>
+    var txt = document.getElementById('txt');
+    function countDown() {
+        var date = new Date();
+        var hourS = 23 - date.getHours();
+        var minuteS = 59 - date.getMinutes();
+        var secondS = 59 - date.getSeconds();
+        if (hourS.toString().length == 1) {
+            hourS = '0' + hourS;
+        }
+        if (minuteS.toString().length == 1) {
+            minuteS = '0' + minuteS;
+        }
+        if (secondS.toString().length == 1) {
+            secondS = '0' + secondS;
+        }
+        txt.value = '距离今天结束还有'+ hourS + '小时' + minuteS + '分' + secondS + '秒';
+    }
+    countDown();
+    setInterval(countDown, 1000);
+</script>
+</body>
+</html>

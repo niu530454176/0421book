@@ -13,7 +13,7 @@
             width: 808px;
             margin: auto;
         }
-        li, a{
+        ul li{
             display: inline-block;
             width: 200px;
             background: #0f0;
@@ -23,30 +23,62 @@
             text-align: center;
             line-height: 30px;
         }
+        button{
+            border-width: 0;
+            background: #0f0;
+        }
+        input{
+            width: 60px;
+            position: absolute;
+            left: 180px;
+            top: 40px;
+        }
     </style>
 </head>
 <body>
+<input id="addBtnS" type="button" value="添加">
 <ul>
     <li>姓名</li>
     <li>年龄</li>
     <li>性别</li>
-    <a href="">删除</a>
+    <li>&nbsp;&nbsp;</li>
 </ul>
-<ul>
-    <li>张三</li>
-    <li>男</li>
-    <li>17</li>
-    <a href="">删除</a>
-</ul>
-<ul>
-    <li>李四</li>
-    <li>男</li>
-    <li>18</li>
-    <a href="">删除</a>
-</ul>
-<script>
-    //页面上第一行有一个文本框 四个按钮 分别为 从前添加 从后添加 从前删除 从后删除 每次添加，出现该文本元素 可以通过按钮操作插入和删除元素
-    var btn = document.getElementsByTagName('a');
-</script>
+<div id="box">
+    <ul>
+        <li>张三</li>
+        <li>男</li>
+        <li>17</li>
+        <li><button>删除</button></li>
+    </ul>
+    <ul>
+        <li>李四</li>
+        <li>男</li>
+        <li>18</li>
+        <li><button>删除</button></li>
+    </ul>
+</div>
 </body>
+<script>
+    //表格行元素的插入和删除
+    var box = document.getElementById('box');
+    var addBtnS = document.getElementById('addBtnS');
+    addBtnS.addEventListener('click', function () {
+        box.innerHTML += '<ul><li>张三</li><li>男</li><li>17</li><li><button>删除</button></li>\</ul>'
+        for (var i = 0; i < btnS.length; i++) {
+            btnS[i].addEventListener('click', function() {
+//            this.parentNode.parentNode.style.display = 'none';//隐藏元素
+            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);//删除元素
+            })
+        }
+    });
+    var btnS = document.getElementsByTagName('button');
+    for (var i = 0; i < btnS.length; i++) {
+        btnS[i].addEventListener('click', function() {
+            var btnS = document.getElementsByTagName('button');
+//            this.parentNode.parentNode.style.display = 'none';//隐藏元素
+            console.log('@');
+            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);//删除元素
+        })
+    }
+</script>
 </html>

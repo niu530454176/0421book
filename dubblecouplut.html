@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: #fff29b;
+        }
+        .w{
+            width: 88px;
+            height: 452px;
+            display: inline-block;
+            position: absolute;
+        }
+        .left{
+            background: url("left.png");
+            left: 100px;
+        }
+        .right{
+            background: url("right.png");
+            right: 100px;
+        }
+        .btn1{
+            position: absolute;
+            right: 5px;
+        }
+        .btn2{
+            position: absolute;
+            top: 0;
+            left: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="w left">
+        <button class="btn btn1">X</button>
+    </div>
+    <div class="w right">
+        <button class="btn btn2">X</button>
+    </div>
+    <script>
+        var btnS = document.getElementsByClassName('btn');
+        var box = document.getElementsByClassName('w');
+        for (var i = 0; i < btnS.length; i++) {
+            btnS[i].addEventListener('click', function () {
+                for (var j = 0; j < box.length; j++) {
+                    box[j].style.display = 'none'
+                }
+            })
+        }
+    </script>
+</body>
+</html>

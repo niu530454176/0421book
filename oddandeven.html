@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="txt" type="text">
+<button id="btn">检验奇数和偶数</button>
+<script>
+    var btn = document.getElementById('btn');
+    var txt = document.getElementById('txt');
+    btn.addEventListener('click', function () {
+        if (!isNaN(txt.value)) {
+            if (parseInt(txt.value) == txt.value) {
+                if (txt.value % 2 == 0) {
+                    alert('你输入的是偶数');
+                } else{
+                    alert('你输入的是奇数');
+                }
+            } else {
+                alert('请输入整数');
+            }
+        } else{
+            alert('请输入纯数字');
+        }
+    })
+</script>
+</body>
+</html>

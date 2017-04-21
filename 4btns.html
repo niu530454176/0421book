@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            margin-top: 100px;
+        }
+        span{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: #0f0;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="btn">
+    <button>从前添加</button>
+    <button>从后添加</button>
+    <button>从前删除</button>
+    <button>从后删除</button>
+</div>
+<div id="box">
+</div>
+<script>
+    var btnS = document.getElementById('btn');
+    var boxS = document.getElementById('box');
+    var arr = ['香蕉','橘子','苹果','梨','香瓜','西瓜','芒果','桃子','柿子','木瓜'];
+    var span = document.createElement('span');
+    btnS.childNodes[3].addEventListener('click', function () {
+        var str = '<span>' + arr[parseInt(Math.random()*10)] + '</span>';
+        boxS.innerHTML += str;
+    });
+    btnS.childNodes[1].addEventListener('click', function () {
+        var str = '<span>' + arr[parseInt(Math.random()*10)] + '</span>';
+        boxS.innerHTML = str + boxS.innerHTML;
+    });
+    btnS.childNodes[5].addEventListener('click', function () {
+        boxS.removeChild(boxS.childNodes[0]);
+    });
+    btnS.childNodes[7].addEventListener('click', function () {
+        boxS.removeChild(boxS.childNodes[boxS.childNodes.length-1]);
+    })
+</script>
+</body>
+</html>
