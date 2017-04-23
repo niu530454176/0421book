@@ -7,7 +7,7 @@
       #btn{
             width: 100px;
             height: 100px;
-            background-color: #c2c5ff;
+            background-color: #2b31ab;
             border-radius: 50%;
             text-align: center;
             line-height: 100px;
@@ -135,7 +135,7 @@
 <script type="text/javascript" src="js/raf.js"></script>
 <script>
     //为页面增加滚动事件侦听，当页面滚动高度大于200，在页面右下方出现 返回顶部 按钮
-    var btn = document.getElementById('btn');
+/*    var btn = document.getElementById('btn');
     window.onscroll = function scrollTop() {
         var t =document.body.scrollTop || document.documentElement.scrollTop;
         if (t >= 200) {
@@ -144,6 +144,26 @@
             btn.style.display = 'none';
         }
     };
+    var t = 20;
+    btn.addEventListener('click', function () {
+        var interId = setInterval(loop, 10);
+        function loop() {
+            document.body.scrollTop = document.body.scrollTop - t;
+            if (!document.body.scrollTop) {
+                clearInterval(interId);
+            }
+        }
+    });*/
+
+    //滚动监听事件
+    var btn = document.getElementById('btn');
+    window.addEventListener('scroll', function () {
+        if (document.body.scrollTop > 200) {
+            btn.style.display = 'block';
+        } else{
+            btn.style.display = 'none';
+        }
+    });
     var t = 20;
     btn.addEventListener('click', function () {
         var interId = setInterval(loop, 10);

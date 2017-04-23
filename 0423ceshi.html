@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    //14、计算10! (注释：4!为4的阶乘 等于4*3*2*1)
+    /*    function factorial(num) {
+     for (var i = 1, j = 1; i <= num; i++) {
+     j *= i
+     }
+     return j;
+     }
+     console.log(factorial(10));*/
+
+
+    //15.计算1+2!+3!+4!+&#8230;&#8230;+10!的和
+    /*    function factorialSum(num) {
+     for (var i = num, result = 0; i > 0; i--) {
+     for (var k = i, sum = 1; k > 0; k--) {
+     sum *= k;
+     }
+     result += sum;
+     }
+     return result;
+     }
+     console.log(factorialSum(4));*/
+    //16.让用户输入三个数字，并弹出最大数和最小数
+    /*    var num = prompt('请输入三个数字，以","分割');
+     var arr = num.split(',');
+     function maxAndMinNum() {
+     var sum = arr[0], sum2 = arr[0];
+     for (var i = 0; i < arr.length; i++) {
+     if (arr[0] < arr[i]) {
+     sum = arr[i]
+     } else {
+     sum2 = arr[i];
+     }
+     }
+     return '最大值是:' + sum + "      " + '最小值是:' + sum2;
+     }
+     console.log(maxAndMinNum(num));*/
+
+    //编写函数来计算奖金钱数，税率表如下：&#60;500 r=0%500&#60;=a&#60;1000 r=0%1000&#60;=a&#60;2000 r=8%2000&#60;=a&#60;3000 r=10%&#62;=3000 r=15%
+    /*
+     function taxRate(num) {
+     if (0< num && num < 1000) {
+     console.log('你需要交的税是:' + 0);
+     } else if (1000 <= num && num <= 2000) {
+     console.log('你需要交的税是:' + num * 8/100);
+     } else if (2000 < num && num <= 3000) {
+     console.log('你需要交的税是:' + num * 10/100);
+     } else if (num > 3000) {
+     console.log('你需要交的税是:' + num * 15/100);
+     } else {
+     console.log('你注意点');
+     }
+     }
+     taxRate(3001);
+     */
+    /*    var choiceS = prompt("脚本提示:\n中国的首都是在哪个城市?\nA、香港 B、广州 C、北京 D、上海");
+     function choiceCity() {
+     if (choiceS == 'A') {
+     alert('错！香港是中国的特别行政区');
+     } else if (choiceS == 'B') {
+     alert('错！广州市中国南部的大城市');
+     } else if (choiceS == 'C') {
+     alert('对！北京市中国的首都在中国北京');
+     } else if (choiceS == 'D') {
+     alert('错！上海市中国东部的大城市');
+     } else {
+     alert('选择错误！只能选填字母A、B、C、或D');
+     }
+     }
+     choiceCity();*/
+
+    //在页面输入文字20.在页面中输出以下文字：（10后需要换行）
+    //    1 2 3 4 5 6 7 8 9 10
+    //    11 12 13 14 15 16 17 18 19 20
+    //21.在页面中输出以下文字：
+    //    1 2 3 4 5
+    //    6 7 8 9 10
+    //    11 12 13 14 15
+    //    16 17 18 19 20 22
+
+    /* for (var i = 1; i <= 20; i++) {
+     if (i == 10) {
+     document.write(i + '<br>');
+     }
+     document.write(i + ' ');
+     }*/
+    /*for (var i = 1; i <= 20; i++) {
+        if (i % 5 == 0) {
+            document.write(i + '<br>');
+            continue;
+        }
+        document.write(i + ' ');
+    }*/
+
+//    22.在页面中输出以下文字：
+//    20 19 18 17 16
+//    15 14 13 12 11
+//    10 9 8 7 6
+//    5 4 3 2 1
+    for (var i = 20, sum = 0; i > 0; i--) {
+        sum++;
+        if (sum % 5 == 0) {
+            document.write(i + '<br>');
+            continue;
+        }
+        document.write(i + ' ');
+     }
+
+</script>
+<body>
+</body>
+</html>

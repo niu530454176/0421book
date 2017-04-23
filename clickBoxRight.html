@@ -9,6 +9,9 @@
             height: 100px;
             background: #0f0;
             margin: 30px 0;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
         @keyframes box1 {
             0% {
@@ -26,7 +29,7 @@
             }
             100% {
                 margin-left: 400px;
-                transform: rotate(180deg);
+                transform: rotate(3600deg);
             }
         }
         @keyframes box3 {
@@ -88,16 +91,10 @@
 <body>
 <div id="box"></div>
 <button id="btn">点我移动盒子</button>
+<script type="text/javascript" src="js/raf.js"></script>
 <script>
     var box = document.getElementById('box');
     var btn = document.getElementById('btn');
-    function getStyle(obj, attr) {
-        if (obj.currentStyle) {
-            return obj.currentStyle[attr];
-        } else {
-            return getComputedStyle(obj, "伪类")[attr];
-        }
-    }
     var count = 1;
     btn.addEventListener('click', function () {
         box.style.animation = 'box' + count + ' ' + 3 + 's' + ' ' + 'forwards';
@@ -106,6 +103,24 @@
             count = 1
         }
     })
+/*    var box = document.getElementById('box');
+    var btn = document.getElementById('btn');
+    function getStyle(obj, attr) {
+        if (obj.currentStyle) {
+            return obj.currentStyle[attr];
+        } else {
+            return getComputedStyle(obj, "伪类")[attr];
+        }
+    }
+    btn.addEventListener('click', function () {
+        var boxLeft = getStyle(box, 'left');
+        function loop() {
+            var t = 20;
+//            boxLeft = parseInt(boxLeft) + 'px';
+            console.log(parseInt(boxLeft + t));
+        }
+        var interId = setInterval(loop, 10);
+    });*/
 
 </script>
 </body>

@@ -21,26 +21,15 @@
 <script>
 
     //点哪 哪出15*15的圆型div
-    var box = document.getElementById('box');
-    function getRandomStr(len, m) {
-        var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        function getRanDom(nn, mm) {
-            return Math.floor(Math.random() * (mm - nn + 1) + nn);
-        }
-        var arr = [];
-        for (var j = 0; j < len; j++) {
-            arr.push(str.charAt(getRanDom(0, m)));
-        }
-        return arr.join('');
-    }
     box.addEventListener('click', function (e) {
-        box.innerHTML += "<div style='width: 15px; height: 15px; border-radius: 50%; position: absolute;'></div>"
+        box.innerHTML += "<div style='width: 10px; height: 10px; border-radius: 50%; position: absolute;'></div>"
         for (var i = 0; i < this.childNodes.length; i++) {
-            this.childNodes[i].style.backgroundColor = "#" + getRandomStr(6, 15);
+            this.childNodes[i].style.backgroundColor = "#" + ((Math.random()*111).toString(16)).substr(3, 6);
         }
         this.childNodes[this.childNodes.length-1].style.left = e.clientX - 8 + 'px';
         this.childNodes[this.childNodes.length-1].style.top = e.clientY - 8 + 'px';
     })
+
 </script>
 </body>
 </html>

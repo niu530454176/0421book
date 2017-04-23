@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -81,4 +81,142 @@
         })
     }
 </script>
+</html>-->
+<!--方法2-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-size: 0;
+            border: 1px solid darkolivegreen;
+            width: 808px;
+            height: 34px;
+            margin-left: 300px;
+        }
+        ul li {
+            display: inline-block;
+            width: 200px;
+            background: #0f0;
+            font-size: 16px;
+            border: 1px solid #fff;
+            height: 34px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .remove {
+            cursor: pointer;
+        }
+        #addBtnS {
+            margin: 30px 0 0 40px;
+            background: #1313ff;
+            cursor: pointer;
+            width: 200px;
+            height: 40px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+姓名<input id="name" type="text"><br>
+性别<input id="sex" type="text"><br>
+年龄<input id="age" type="text"><br>
+<input id="addBtnS" type="button" value="添加">
+<ul>
+    <li>姓名</li>
+    <li>年龄</li>
+    <li>性别</li>
+    <li>&nbsp;&nbsp;</li>
+</ul>
+<div id="box">
+    <ul>
+        <li>张三</li>
+        <li>男</li>
+        <li>17</li>
+        <li class="remove">删除</li>
+    </ul>
+    <ul>
+        <li>李四</li>
+        <li>男</li>
+        <li>18</li>
+        <li class="remove">删除</li>
+    </ul>
+</div>
+</body>
 </html>
+<script>
+    var addBtn = document.getElementById('addBtnS');
+    addBtn.addEventListener('click', function () {
+        //获取父容器
+        var boxW = document.getElementById('box');
+        //创建子元素ul
+        var myUl = document.createElement('ul');
+        //创建ul第一个子元素li
+        var liOne = document.createElement('li');
+        //获取用户输入姓名的值
+        var addName = document.getElementById('name').value;
+        //创建文本节点稍后给第一个li元素添加文本
+        var liOneTxt = document.createTextNode(addName);
+        //创建ul第二个子元素li
+        var liTwo = document.createElement('li');
+        //获取用户输入性别的值
+        var addSex = document.getElementById('sex').value;
+        //创建文本节点稍后给第二个li元素添加文本
+        var liTwoTxt = document.createTextNode(addSex);
+        //创建ul第三个子元素li
+        var liThree = document.createElement('li');
+        //获取用户输入年龄的值
+        var addAge = document.getElementById('age').value;
+        //创建文本节点稍后给第三个li元素添加文本
+        var liThreeTxt = document.createTextNode(addAge);
+        //创建ul第四个子元素li
+        var liFour = document.createElement('li');
+        //创建文本节点稍后给第四个li元素添加文本
+        var liFourTxt = document.createTextNode('删除');
+        //给第四个LI创建属性节点
+        var att = document.createAttribute('class');
+        if (!addName || !addSex || !addAge) {
+            alert('资料填写完整好不好？乖宝宝！');
+            return;
+        }
+        att.value = 'remove';
+        //给第四个LI添加属性节点
+        liFour.setAttributeNode(att);
+        //给第一个LI添加文本节点
+        liOne.appendChild(liOneTxt);
+        //给第二个LI添加文本节点
+        liTwo.appendChild(liTwoTxt);
+        //给第三个LI添加文本节点
+        liThree.appendChild(liThreeTxt);
+        //给第四个LI添加文本节点
+        liFour.appendChild(liFourTxt);
+        //把创建的子元素放进ul里面
+        myUl.appendChild(liOne);
+        myUl.appendChild(liTwo);
+        myUl.appendChild(liThree);
+        myUl.appendChild(liFour);
+        //把ul放进boxW里面
+        boxW.appendChild(myUl);
+//        获取新创建的元素名字然后添加事件
+        var remove = document.getElementsByClassName('remove');
+        for (var i = 0; i < remove.length; i++) {
+            remove[i].addEventListener('click', function (e) {
+                e.target.parentNode.style.display = 'none';
+            })
+        }
+    });
+//    未添加子元素的时候添加鼠标点击删除事件
+    var boxS = document.getElementById('box');
+    for (var i = 0; i < boxS.childNodes.length; i++) {
+        if (boxS.childNodes[i].nodeType == 1) {
+            boxS.childNodes[i].childNodes[boxS.childNodes[i].childNodes.length - 2].addEventListener('click', function () {
+                this.parentNode.style.display = 'none';
+            })
+        }
+    }
+</script>
