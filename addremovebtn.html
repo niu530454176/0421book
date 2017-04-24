@@ -211,12 +211,10 @@
         }
     });
 //    未添加子元素的时候添加鼠标点击删除事件
-    var boxS = document.getElementById('box');
-    for (var i = 0; i < boxS.childNodes.length; i++) {
-        if (boxS.childNodes[i].nodeType == 1) {
-            boxS.childNodes[i].childNodes[boxS.childNodes[i].childNodes.length - 2].addEventListener('click', function () {
-                this.parentNode.style.display = 'none';
-            })
-        }
+    var remove = document.getElementsByClassName('remove');
+    for (var i = 0; i < remove.length; i++) {
+        remove[i].addEventListener('click', function (e) {
+            e.target.parentNode.style.display = 'none';
+        })
     }
 </script>

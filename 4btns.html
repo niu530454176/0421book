@@ -20,16 +20,16 @@
 </head>
 <body>
 <div id="btn">
-    <button>从前添加</button>
-    <button>从后添加</button>
-    <button>从前删除</button>
-    <button>从后删除</button>
+    <button id="btn1">从前添加</button>
+    <button id="btn2">从后添加</button>
+    <button id="btn3">从前删除</button>
+    <button id="btn4">从后删除</button>
 </div>
 <div id="box">
 </div>
 <script>
-    var btnS = document.getElementById('btn');
     var boxS = document.getElementById('box');
+
     var arr = ['香蕉','橘子','苹果','梨','香瓜','西瓜','芒果','桃子','柿子','木瓜'];
     var span = document.createElement('span');
     btnS.childNodes[3].addEventListener('click', function () {
@@ -46,6 +46,70 @@
     btnS.childNodes[7].addEventListener('click', function () {
         boxS.removeChild(boxS.childNodes[boxS.childNodes.length-1]);
     })
+
+
+
 </script>
 </body>
 </html>
+
+<!--
+<style type="text/css">
+    #box {
+        margin-top: 100px;
+    }
+    span {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: #0F0;
+        text-align: center;
+        line-height: 100px;
+        border-radius: 50%;
+    }
+</style>
+
+<input type="text" id="txt"/>
+<div id="btn">
+    <button id="before-add">从前添加</button>
+    <button id="after-add">从后添加</button>
+    <button id="before-delete">从前删除</button>
+    <button id="after-delete">从后删除</button>
+</div>
+<div id="box"></div>
+
+<script>
+    var beforeAddBtn = document.getElementById('before-add')
+    var afterAddBtn = document.getElementById('after-add');
+    var beforeDeleteBtn = document.getElementById('before-delete');
+    var afterDeleteBtn = document.getElementById('after-delete');
+    var boxS = document.getElementById('box');
+    var txtInput = document.getElementById('txt');
+    var span = document.createElement('span');
+    afterAddBtn.addEventListener('click', function () {
+        if(txtInput.value != '') {
+            var span = document.createElement('span');
+            span.innerHTML = txtInput.value;
+            boxS.appendChild(span);
+            txtInput.value = '';
+        }
+    });
+    beforeAddBtn.addEventListener('click', function () {
+        if(txtInput.value != '') {
+            var span = document.createElement('span');
+            span.innerHTML = txtInput.value;
+            boxS.insertBefore(span, boxS.firstChild);
+            txtInput.value = '';
+        }
+    });
+    beforeDeleteBtn.addEventListener('click', function () {
+        if (boxS.childNodes.length) {
+            boxS.removeChild(boxS.childNodes[0]);
+        }
+    });
+    afterDeleteBtn.addEventListener('click', function () {
+        if (boxS.childNodes.length) {
+            boxS.removeChild(boxS.childNodes[boxS.childNodes.length - 1]);
+        }
+    });
+</script>-->

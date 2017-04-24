@@ -22,14 +22,31 @@
 
     //点哪 哪出15*15的圆型div
     box.addEventListener('click', function (e) {
-        box.innerHTML += "<div style='width: 10px; height: 10px; border-radius: 50%; position: absolute;'></div>"
+        box.innerHTML += "<div style='width: 20px; height: 20px; border-radius: 50%; position: absolute;'></div>";
         for (var i = 0; i < this.childNodes.length; i++) {
             this.childNodes[i].style.backgroundColor = "#" + ((Math.random()*111).toString(16)).substr(3, 6);
         }
-        this.childNodes[this.childNodes.length-1].style.left = e.clientX - 8 + 'px';
-        this.childNodes[this.childNodes.length-1].style.top = e.clientY - 8 + 'px';
+        this.childNodes[this.childNodes.length-1].style.left = e.clientX - 10 + 'px';
+        this.childNodes[this.childNodes.length-1].style.top = e.clientY - 10 + 'px';
     })
 
+    // 频繁操作dom影响性能所以要加进数组会
+/*    var box = document.getElementById('box');
+    var divArr = [];
+    box.addEventListener('click', function (e) {
+        var div = document.createElement('div');
+        div.style.width = '20px';
+        div.style.height = '20px';
+        div.style.borderRadius = '50%';
+        div.style.position = 'absolute';
+        div.style.left = e.clientX - 10 + 'px';
+        div.style.top = e.clientY - 10 + 'px';
+        box.appendChild(div);
+        divArr.push(div);
+        for (var i = 0; i < divArr.length; i++) {
+            divArr[i].style.backgroundColor = "#" + ((Math.random() * 111).toString(16)).substr(3, 6);
+        }
+    });*/
 </script>
 </body>
 </html>

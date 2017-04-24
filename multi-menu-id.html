@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>多个ul列表展开收起</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #ff0016;
+            text-decoration: none;
+        }
+
+        .open, .close {
+            font-size: 32px;
+            position: absolute;
+            left: 66px;
+            top: -13px;
+            display: none;
+        }
+
+        .close {
+            font-size: 40px;
+            top: -19px;
+            display: block;
+        }
+
+        .menu-wrap {
+            position: relative;
+        }
+
+        ul {
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="menu-wrap">
+    <div class="open" id="open1">+</div>
+    <div class="close" id="close1">-</div>
+    <a id="a1" href="#none">系统设置</a>
+    <div id="menu1" class="menu">
+        <ul>
+            <li>系统状态</li>
+            <li>系统运行时间</li>
+            <li>语言设置</li>
+        </ul>
+    </div>
+</div>
+<div class="menu-wrap">
+    <div class="open" id="open2">+</div>
+    <div class="close" id="close2">-</div>
+    <a id="a2" href="#none">新闻管理</a>
+    <div id="menu2" class="menu">
+        <ul>
+            <li>添加新闻</li>
+            <li>修改新闻</li>
+            <li>删除新闻</li>
+        </ul>
+    </div>
+</div>
+<div class="menu-wrap">
+    <div class="open" id="open3">+</div>
+    <div class="close" id="close3">-</div>
+    <a id="a3" href="#none">订单管理</a>
+    <div id="menu3" class="menu">
+        <ul>
+            <li>发货管理</li>
+            <li>查询订单</li>
+            <li>打印订单</li>
+        </ul>
+    </div>
+</div>
+<div class="menu-wrap">
+    <div class="open" id="open4">+</div>
+    <div class="close" id="close4">-</div>
+    <a id="a4" href="#none">员工管理</a>
+    <div id="menu4" class="menu">
+        <ul>
+            <li>添加员工</li>
+            <li>修改信息</li>
+            <li>查看信息</li>
+        </ul>
+    </div>
+</div>
+<div class="menu-wrap">
+    <div class="open" id="open5">+</div>
+    <div class="close" id="close5">-</div>
+    <a id="a5" href="#none">密码管理</a>
+    <div id="menu5" class="menu">
+        <ul>
+            <li>密码设置</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    for (var i = 1; i <= 5; i++) {
+        var btn = document.getElementById('a' + i);
+        btn.addEventListener('click', function (e) {
+            var idStr = e.target.id;
+            var idIndex = idStr.slice(1);
+            var menu = document.getElementById('menu' + idIndex);
+            var menuDisplay = getStyle(menu, 'display');
+            var openS = document.getElementById('open' + idIndex);
+            var closeS = document.getElementById('close' + idIndex);
+            if (menuDisplay == 'block') {
+                menu.style.display = 'none';
+                openS.style.display = 'block';
+                closeS.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+                openS.style.display = 'none';
+                closeS.style.display = 'block';
+            }
+        });
+    }
+    function getStyle(obj, attr) {
+        if (obj.currentStyle) {
+            return obj.currentStyle[attr];
+        } else {
+            return getComputedStyle(obj, "伪类")[attr];
+        }
+    }
+
+</script>
+
+</body>
+</html>
