@@ -8,7 +8,7 @@
             width: 100px;
             height: 100px;
             background: #0f0;
-            margin: 30px 0;
+            margin: 50px 0;
             position: absolute;
             left: 0;
             top: 0;
@@ -19,71 +19,57 @@
             }
             100% {
                 margin-left: 200px;
-                transform: rotate(90deg);
-            }
+                }
         }
         @keyframes box2 {
             0% {
                 margin-left: 200px;
-                transform: rotate(1deg);
-            }
+                }
             100% {
                 margin-left: 400px;
-                transform: rotate(3600deg);
-            }
+                }
         }
         @keyframes box3 {
             0% {
                 margin-left: 400px;
-                transform: rotate(1deg);
-            }
+                }
             100% {
                 margin-left: 600px;
-                transform: rotate(270deg);
-            }
+                }
         }
         @keyframes box4 {
             0% {
                 margin-left: 600px;
-                transform: rotate(1deg);
-            }
+                }
             100% {
                 margin-left: 800px;
-                transform: rotate(306deg);
-            }
+                }
         }
         @keyframes box5 {
             0% {
                 margin-left: 800px;
-                transform: rotate(1deg);
-            }
+                }
             100% {
                 margin-left: 1000px;
-                transform: rotate(240deg);
-            }
+                }
         }
         @keyframes box6 {
             0% {
                 margin-left: 1000px;
-                transform: rotate(1deg);
-            }
+                }
             50% {
                 margin-left: 1180px;
-                transform: rotate(180deg);
-            }
+                }
             100% {
                 margin-left: 1200px;
-                transform: rotate(1deg);
-            }
+                }
         }
         @keyframes box7 {
             0% {
                 margin-left: 1000px;
-                transform: rotate(1deg);
-            }
+                }
             100% {
                 margin-left: 0;
-                transform: rotate(-720deg);
             }
         }
     </style>
@@ -97,14 +83,74 @@
     var btn = document.getElementById('btn');
     var count = 1;
     btn.addEventListener('click', function () {
-        box.style.animation = 'box' + count + ' ' + 3 + 's' + ' ' + 'forwards';
+        box.style.animation = 'box' + count + ' ' + 2.5 + 's' + ' ' + 'forwards';
         count++;
         if (count == 8) {
             count = 1
         }
-    })
-/*    var box = document.getElementById('box');
-    var btn = document.getElementById('btn');
+    });
+</script>
+
+
+
+<!--计算时间的快速方法-->
+<!--<div id="testDiv" data-time="2017/06/18 00:00:00">
+    <span class="detail"><b>07</b>天<b>09</b>时<b>16</b>分<b>05</b>秒</span>
+</div>
+<script>
+    var str = document.getElementById('testDiv').getAttribute('data-time');
+    var terminalTime = new Date(str);
+    var bArr = document.getElementsByTagName('b');
+    downCount();
+    function downCount() {
+        var nowDate = new Date();
+        var chaZhi = terminalTime - nowDate;
+        if(chaZhi < 0) {
+            clearTimeout(setIntervalId)
+        }
+        var myDate = setTime(chaZhi);
+        bArr[0].innerHTML = myDate.date;
+        bArr[1].innerHTML = myDate.hours;
+        bArr[2].innerHTML = myDate.minutes;
+        bArr[3].innerHTML = myDate.seconds;
+    }
+    var setIntervalId = setInterval(downCount, 1000);
+
+    function setTime(time) {
+        var date = new Date();
+        date.date = Math.ceil(time / (1000 * 60 * 60 * 24));
+        date.hours = Math.floor(( time / (1000 * 60 * 60)) % 24);
+        date.minutes = Math.floor(( time / (1000 * 60)) % 60);
+        date.seconds = Math.floor(( time / 1000) % 60);
+        date.milliseconds = Math.floor(time % 1000);
+        return date;
+    }
+</script>-->
+
+<!--<script>
+    for (var i = 1; i <= 5; i++) {
+        var btn = document.getElementById('a' + i);
+        btn.addEventListener('click', function (e) {
+            var idStr = e.target.id;
+            var idIndex = idStr.slice(1);
+            setJiaJian(idIndex);
+        });
+        setJiaJian(i);
+    }
+    function setJiaJian(idIndex) {
+        var menu = document.getElementById('menu' + idIndex);
+        var icon = document.getElementById('icon' + idIndex);
+        var menuDisplay = getStyle(menu, 'display');
+        if (menuDisplay == 'block') {
+            menu.style.display = 'none';
+            icon.style.backgroundImage = 'url(images/jia.png)';
+        } else {
+            menu.style.display = 'block';
+            icon.style.backgroundImage = 'url(images/jian.png)';
+        }
+    }
+
+
     function getStyle(obj, attr) {
         if (obj.currentStyle) {
             return obj.currentStyle[attr];
@@ -112,16 +158,6 @@
             return getComputedStyle(obj, "伪类")[attr];
         }
     }
-    btn.addEventListener('click', function () {
-        var boxLeft = getStyle(box, 'left');
-        function loop() {
-            var t = 20;
-//            boxLeft = parseInt(boxLeft) + 'px';
-            console.log(parseInt(boxLeft + t));
-        }
-        var interId = setInterval(loop, 10);
-    });*/
-
-</script>
+</script>-->
 </body>
 </html>

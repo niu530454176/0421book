@@ -158,11 +158,7 @@
     //滚动监听事件
     var btn = document.getElementById('btn');
     window.addEventListener('scroll', function () {
-        if (document.body.scrollTop > 200) {
-            btn.style.display = 'block';
-        } else{
-            btn.style.display = 'none';
-        }
+        btn.style.display = document.body.scrollTop <= 200 ? 'none' : 'block';
     });
     var t = 20;
     btn.addEventListener('click', function () {
